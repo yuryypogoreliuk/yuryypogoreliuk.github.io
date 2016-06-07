@@ -8,29 +8,6 @@
   Upload your logo: <input id="logoload" type="file" name="pic" accept="image/*">
 <p><canvas id="canv" width="900" height="900" style="border: 1px solid #cccccc;">  HTML5 Canvas not supported </canvas></p>
 <script>
-    /*window.onload = function() {
-        drawExamples();
-    }
-	var bgimage = null;
-	var logo = null;
-	function drawExamples(){
-		bgimage = new Image();
-		// Image 500x500px
-		bgimage.src = "https://www.noao.edu/image_gallery/images/d2/NGC1365-500.jpg";
-		bgimage.onload = function(){
-			var canvas  = document.getElementById("canv");
-			var context = canvas.getContext("2d");
-			context.drawImage(bgimage, 0, 0);
-		};
-		logo = new Image();
-		// Image 300x300px
-		logo.src =  "http://www.reneesebastian.com/wp-content/uploads/2015/03/banner_sample300x300.jpg";
-		logo.onload = function(){
-			var canvas  = document.getElementById("canv");
-			var context = canvas.getContext("2d");
-			context.drawImage(this, 200, 100);
-		};
-		}*/
 	var canvas  = document.getElementById("canv");
 	var context = canvas.getContext("2d");
 	function draw_image(source, x, y){
@@ -53,7 +30,7 @@
 	var bgimg = "https://www.noao.edu/image_gallery/images/d2/NGC1365-500.jpg";
 	var logo = "http://www.reneesebastian.com/wp-content/uploads/2015/03/banner_sample300x300.jpg";
 	draw_image(bgimg, 0, 0);
-	//draw_image(logo, 100, 100);
+	
 
 function draw_input(input) {
     if (input.files && input.files[0]) {
