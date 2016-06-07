@@ -38,8 +38,11 @@ function draw_input(input) {
      
         reader.onload = function (e) {
 			var canvas  = document.getElementById("canv");
-			var context = canvas.getContext("2d");	
-            context.drawImage(e.target.result, 300, 300);
+			var context = canvas.getContext("2d");
+			var image = new Image();
+			image.src = e.target.result;
+
+            image.onload = function(){context.drawImage(this, 300, 300);}
         }
          
         reader.readAsDataURL(input.files[0]);
