@@ -73,11 +73,14 @@ $("#logoload").change(function(){
 	}
 	canvas_for_logo_resizing.height = 300;
 	canvas_for_logo_resizing.width = 300;
-	var logo = canvas_for_logo_resizing.toDataURL();
+	var logo = new Image();
+	logo.src = canvas_for_logo_resizing.toDataURL();
+	logo.onload = function(){
+		var main_canvas  = document.getElementById("canv");
+		var context = canvas.getContext("2d");
+		context.drawImage(this, 300, 300);
+	}
 	
-	var main_canvas  = document.getElementById("canv");
-	var context = canvas.getContext("2d");
-	context.drawImage(logo, 300, 300);
 
     	
     //draw_input(this);
