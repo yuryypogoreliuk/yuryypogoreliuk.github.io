@@ -37,20 +37,53 @@ function draw_input(input) {
         var reader = new FileReader();
      
         reader.onload = function (e) {
-			var canvas  = document.getElementById("canv");
-			var context = canvas.getContext("2d");
-			var image = new Image();
-			image.src = e.target.result;
-			image.onload = function(){context.drawImage(this, 300, 300);}
+		var canvas  = document.getElementById("canv");
+		var context = canvas.getContext("2d");
+		var image = new Image();
+		image.src = e.target.result;
+		image.onload = function(){context.drawImage(this, 300, 300);}
         }
          
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function get_input_URL(input){
+	if (input.files && input.files[0]) {
+        var reader = new FileReader();
+     	var res;
+        reader.onload = function (e) {
+			res = e.target.result;
+		}
+         
+        reader.readAsDataURL(input.files[0]);
+        return res;
+    }
+}
+
     
-    $("#logoload").change(function(){
-        draw_input(this);
+$("#logoload").change(function(){
+  	var canvas_for_logo_resizing = document.createElement('canvas');
+	canvas_for_logo_resizing.id = "logoresize";
+	var context_logo = canvas_for_logo_resizing.getContext("2d");
+	var image = new Image();
+	image.src = get_input_URL(this);
+	image.onload = function(){
+		context_logo.drawImage(this, 0, 0);
+	}
+	canvas_for_logo_resizing.height = 300;
+	canvas_for_logo_resizing.width = 300;
+	var logo = canvas_for_logo_resizing.toDataURL();
+	
+	var main_canvas  = document.getElementById("canv");
+	var context = canvas.getContext("2d");
+	logo.onload = function(){
+		context.drawImage(this, 300, 300);
+	}
+    	
+    //draw_input(this);
     });
+
 
 
 	
