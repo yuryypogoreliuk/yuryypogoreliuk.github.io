@@ -22,12 +22,12 @@
 			logo.onload = function(){ 
 				var canvas  = document.getElementById("canv");
 				var context = canvas.getContext("2d");			
-				context.drawImage(this, 100, 100);
+				context.drawImage(this, 300, 300);
 			}
 			
 		}
 }
-	var bgimg = "https://www.noao.edu/image_gallery/images/d2/NGC1365-500.jpg";
+	var bgimg = "http://boombob.ru/img/picture/Jun/15/3740ff252b7c42e78183a13bdcf8e45a/12.jpg";
 	var logo = "http://www.reneesebastian.com/wp-content/uploads/2015/03/banner_sample300x300.jpg";
 	draw_image(bgimg, 0, 0);
 	
@@ -41,8 +41,7 @@ function draw_input(input) {
 			var context = canvas.getContext("2d");
 			var image = new Image();
 			image.src = e.target.result;
-
-            image.onload = function(){context.drawImage(this, 300, 300);}
+			image.onload = function(){context.drawImage(this, 300, 300);}
         }
          
         reader.readAsDataURL(input.files[0]);
