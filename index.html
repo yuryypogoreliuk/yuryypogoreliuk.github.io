@@ -77,9 +77,8 @@ $("#logoload").change(function(){
 	
 	var main_canvas  = document.getElementById("canv");
 	var context = canvas.getContext("2d");
-	logo.onload = function(){
-		context.drawImage(this, 300, 300);
-	}
+	context.drawImage(logo, 300, 300);
+
     	
     //draw_input(this);
     });
