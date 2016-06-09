@@ -77,7 +77,7 @@ $("#logoload").change(function(){
 	logo.src = canvas_for_logo_resizing.toDataURL();
 	logo.onload = function(){
 		var main_canvas  = document.getElementById("canv");
-		var context = canvas.getContext("2d");
+		var context = main_canvas.getContext("2d");
 		context.drawImage(this, 300, 300);
 	}
 	
